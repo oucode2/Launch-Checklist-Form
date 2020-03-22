@@ -9,18 +9,19 @@ window.addEventListener("load", function() {
       if (pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value === "") {
          alert("All fields are required!");
           }
-      if (!isNaN(pilotNameInput.value)) {
-         alert ("A name is required!");
+      else if (!isNaN(pilotNameInput.value)) {
+         alert ("A name is required for Pilot!");
       }   
-      if (!isNaN(copilotNameInput.value)) {
-         alert ("A name is required!");
+      else if (!isNaN(copilotNameInput.value)) {
+         alert ("A name is required for Copilot!");
       }
-      if (isNaN(fuelLevelInput.value)) {
-         alert ("A number is required!");
+      else if (isNaN(fuelLevelInput.value)) {
+         alert ("A number is required for FuelLevel!");
       }  
-      if (isNaN(cargoMassInput.value)) {
-         alert ("A number is required!");
+      else if (isNaN(cargoMassInput.value)) {
+         alert ("A number is required for cargoMass!");
       } 
+      
          });   
    });
 
