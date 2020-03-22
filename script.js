@@ -11,21 +11,28 @@ window.addEventListener("load", function() {
       let statusOfLaunch = document.querySelector("h2");
       if (pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value === "") {
          alert("All fields are required!");
+         event.preventDefault();
           }
       else if (!isNaN(pilotNameInput.value)) {
          alert ("A name is required for Pilot!");
+         event.preventDefault();
       }   
       else if (!isNaN(copilotNameInput.value)) {
          alert ("A name is required for Copilot!");
+         event.preventDefault();
       }
       else if (isNaN(fuelLevelInput.value)) {
          alert ("A number is required for FuelLevel!");
+         event.preventDefault();
       }  
       else if (isNaN(cargoMassInput.value)) {
          alert ("A number is required for cargoMass!");
+         event.preventDefault();
       } 
       else if (Number(fuelLevelInput.value) < 10000) {
          statusOfLaunch.innerHTML = ("Shuttle not ready for launch");
+         statusOfLaunch.style.color = "red";
+         event.preventDefault();
       }
          });   
    });
