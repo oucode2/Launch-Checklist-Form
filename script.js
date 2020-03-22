@@ -12,8 +12,15 @@ window.addEventListener("load", function() {
       if (!isNaN(pilotNameInput.value)) {
          alert ("A name is required!");
       }   
-          
-
+      if (!isNaN(copilotNameInput.value)) {
+         alert ("A name is required!");
+      }
+      if (isNaN(fuelLevelInput.value)) {
+         alert ("A number is required!");
+      }  
+      if (isNaN(cargoMassInput.value)) {
+         alert ("A number is required!");
+      } 
          });   
    });
 
