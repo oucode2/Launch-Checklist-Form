@@ -10,6 +10,8 @@ window.addEventListener("load", function() {
       let cargoMassInput = document.querySelector("input[name=cargoMass]");
       let statusOfLaunch = document.querySelector("h2");
       let statusOfFuel = document.getElementById("fuelStatus");
+      let statusOfPilot = document.getElementById("pilotStatus");
+      let pilot = document.getElementById("copilotStatus");
       if (pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value === "") {
          alert("All fields are required!");
          event.preventDefault();
@@ -35,7 +37,10 @@ window.addEventListener("load", function() {
          statusOfLaunch.style.color = "red";
          event.preventDefault();
          document.getElementById("faultyItems").style.visibility = 'visible';
-         statusOfFuel.innerHTML = ("There is not enough fuel for the journey")
+         statusOfFuel.innerHTML = ("There is not enough fuel for the journey");
+         statusOfPilot.innerHTML = (`Pilot ${pilotNameInput.value} is ready for launch`);
+         pilot.innerHTML = (`Pilot ${copilotNameInput.value} is ready for launch`);
+
 
       }
          });   
