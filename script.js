@@ -13,7 +13,7 @@ window.addEventListener("load", function() {
       let statusOfPilot = document.getElementById("pilotStatus");
       let pilot = document.getElementById("copilotStatus");
       let statusOfCargo = document.getElementById("cargoStatus");
-      if (pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value === "") {
+if (pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value === "") {
          alert("All fields are required!");
          event.preventDefault();
            }
@@ -42,16 +42,20 @@ window.addEventListener("load", function() {
          statusOfPilot.innerHTML = (`Pilot ${pilotNameInput.value} is ready for launch`);
          pilot.innerHTML = (`Pilot ${copilotNameInput.value} is ready for launch`);
          }
-         else if (Number(cargoMassInput.value) > 10000) {
-            statusOfLaunch.innerHTML = ("Shuttle not ready for launch");
-            statusOfLaunch.style.color = "red";
-            event.preventDefault();
-            document.getElementById("faultyItems").style.visibility = 'visible';
-            statusOfCargo.innerHTML = ("There is too much mass for the shuttle to take off");
-            statusOfPilot.innerHTML = (`Pilot ${pilotNameInput.value} is ready for launch`);
-            pilot.innerHTML = (`Pilot ${copilotNameInput.value} is ready for launch`);
+      else if (Number(cargoMassInput.value) > 10000) {
+         statusOfLaunch.innerHTML = ("Shuttle not ready for launch");
+         statusOfLaunch.style.color = "red";
+         event.preventDefault();
+         document.getElementById("faultyItems").style.visibility = 'visible';
+         statusOfCargo.innerHTML = ("There is too much mass for the shuttle to take off");
+         statusOfPilot.innerHTML = (`Pilot ${pilotNameInput.value} is ready for launch`);
+         pilot.innerHTML = (`Pilot ${copilotNameInput.value} is ready for launch`);
             }
-
+else {
+         statusOfLaunch.innerHTML = ("Shuttle is ready for launch");
+         statusOfLaunch.style.color = "green";
+         event.preventDefault();
+            }
          });   
    });
 
