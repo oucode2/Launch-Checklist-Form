@@ -9,10 +9,11 @@ window.addEventListener("load", function() {
       let fuelLevelInput = document.querySelector("input[name=fuelLevel]");
       let cargoMassInput = document.querySelector("input[name=cargoMass]");
       let statusOfLaunch = document.querySelector("h2");
+      let statusOfFuel = document.getElementById("fuelStatus");
       if (pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value === "") {
          alert("All fields are required!");
          event.preventDefault();
-          }
+           }
       else if (!isNaN(pilotNameInput.value)) {
          alert ("A name is required for Pilot!");
          event.preventDefault();
@@ -33,6 +34,9 @@ window.addEventListener("load", function() {
          statusOfLaunch.innerHTML = ("Shuttle not ready for launch");
          statusOfLaunch.style.color = "red";
          event.preventDefault();
+         document.getElementById("faultyItems").style.visibility = 'visible';
+         statusOfFuel.innerHTML = ("There is not enough fuel for the journey")
+
       }
          });   
    });
