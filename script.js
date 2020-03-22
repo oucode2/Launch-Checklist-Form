@@ -1,4 +1,6 @@
 // Write your JavaScript code here!
+let statusOfLaunch = null;
+
 window.addEventListener("load", function() {
    let form = document.querySelector("form");
    form.addEventListener("submit", function(event) {
@@ -6,6 +8,7 @@ window.addEventListener("load", function() {
       let copilotNameInput = document.querySelector("input[name=copilotName]");
       let fuelLevelInput = document.querySelector("input[name=fuelLevel]");
       let cargoMassInput = document.querySelector("input[name=cargoMass]");
+      let statusOfLaunch = document.querySelector("h2");
       if (pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value === "") {
          alert("All fields are required!");
           }
@@ -21,7 +24,9 @@ window.addEventListener("load", function() {
       else if (isNaN(cargoMassInput.value)) {
          alert ("A number is required for cargoMass!");
       } 
-      
+      else if (Number(fuelLevelInput.value) < 10000) {
+         statusOfLaunch.innerHTML = ("Shuttle not ready for launch");
+      }
          });   
    });
 
