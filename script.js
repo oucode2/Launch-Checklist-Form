@@ -1,21 +1,23 @@
 // Write your JavaScript code here!
 let statusOfLaunch = null;
+let randomInt = Math.floor(Math.random() * 6)
 
 window.addEventListener("load", function() {
             fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
             response.json().then( function(json) {
             const div = document.getElementById("missionTarget");
             // Add HTML that includes the JSON data
+
             div.innerHTML = `
             <h2> Mission Destination </h2>   
             <ol>
-               <li>Name: ${json[5].name}</li>
-               <li>Diameter: ${json[5].diameter}</li>
-               <li>Star: ${json[5].star}</li>
-               <li>Distance from Earth: ${json[5].distance}</li>
-               <li>Number of Moons: ${json[5].moons}</li>
+               <li>Name: ${json[randomInt].name}</li>
+               <li>Diameter: ${json[randomInt].diameter}</li>
+               <li>Star: ${json[randomInt].star}</li>
+               <li>Distance from Earth: ${json[randomInt].distance}</li>
+               <li>Number of Moons: ${json[randomInt].moons}</li>
             </ol>
-            <img src="${json[5].image}">
+            <img src="${json[randomInt].image}">
             `;
             });
       });
@@ -28,7 +30,7 @@ window.addEventListener("load", function() {
       let statusOfLaunch = document.getElementById("launchStatus");
       let statusOfFuel = document.getElementById("fuelStatus");
       let statusOfPilot = document.getElementById("pilotStatus");
-      let pilot = document.getElementById("copilotStatus");
+      let copilot = document.getElementById("copilotStatus");
       let statusOfCargo = document.getElementById("cargoStatus");
 if (pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value === "") {
          alert("All fields are required!");
@@ -57,7 +59,7 @@ if (pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInp
          document.getElementById("faultyItems").style.visibility = 'visible';
          statusOfFuel.innerHTML = ("There is not enough fuel for the journey");
          statusOfPilot.innerHTML = (`Pilot ${pilotNameInput.value} is ready for launch`);
-         pilot.innerHTML = (`Pilot ${copilotNameInput.value} is ready for launch`);
+         copilot.innerHTML = (`Pilot ${copilotNameInput.value} is ready for launch`);
          }
       else if (Number(cargoMassInput.value) > 10000) {
          statusOfLaunch.innerHTML = ("Shuttle not ready for launch");
@@ -66,12 +68,16 @@ if (pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInp
          document.getElementById("faultyItems").style.visibility = 'visible';
          statusOfCargo.innerHTML = ("There is too much mass for the shuttle to take off");
          statusOfPilot.innerHTML = (`Pilot ${pilotNameInput.value} is ready for launch`);
-         pilot.innerHTML = (`Pilot ${copilotNameInput.value} is ready for launch`);
+         copilot.innerHTML = (`Pilot ${copilotNameInput.value} is ready for launch`);
             }
 else {
          statusOfLaunch.innerHTML = ("Shuttle is ready for launch");
          statusOfLaunch.style.color = "green";
          event.preventDefault();
+         statusOfPilot.innerHTML = (`Pilot ${pilotNameInput.value} is ready for launch`);
+         copilot.innerHTML = (`Pilot ${copilotNameInput.value} is ready for launch`);
+         statusOfFuel.innerHTML = ("Fuel level high enough for launch");
+         statusOfCargo.innerHTML = ("Cargo mass low enough for launch")
             }
          });   
    });
